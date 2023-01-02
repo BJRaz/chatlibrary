@@ -7,15 +7,16 @@ import java.util.EventObject;
  */
 public class ConnectionEvent extends EventObject {
 
-    private String command;
+    private final String command;
 
     /**
      * Method ConnectionEvent
      *
      *
+     * @param source
+     * @param command
      */
     public ConnectionEvent(Object source, String command) {
-        // TODO: Add your code here
         super(source);
         this.command = command;
     }

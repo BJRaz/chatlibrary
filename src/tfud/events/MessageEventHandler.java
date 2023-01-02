@@ -5,8 +5,6 @@
  */
 package tfud.events;
 
-import tfud.events.MessageListener;
-
 /**
  *
  * @author brian

@@ -1,13 +1,14 @@
 package tfud.events;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author BJR
  */
 public class ConnectionHandler {
 
-    private Vector connectionListeners;
+    private final List<ConnectionListener> connectionListeners;
 
     /**
      * Method ConnectionHandler
@@ -15,22 +16,18 @@ public class ConnectionHandler {
      *
      */
     public ConnectionHandler() {
-        // TODO: Add your code here
-        connectionListeners = new Vector();
+        connectionListeners = new ArrayList<>();
     }
 
     public void addConnectionListener(ConnectionListener c) {
-        connectionListeners.addElement(c);
+        connectionListeners.add(c);
     }
 
     public void fireConnectionUpdated(String command) {
+        connectionListeners.forEach(cl -> {
+            ConnectionEvent cEvt = new ConnectionEvent(cl, command);
 
-        for (int i = 0; i < connectionListeners.size(); i++) {
-            ConnectionListener l = ((ConnectionListener) connectionListeners.elementAt(i));
-            ConnectionEvent cEvt = new ConnectionEvent(l, command);
-
-            l.connectionUpdated(cEvt);
-        }
-
+            cl.connectionUpdated(cEvt);
+        });
     }
 }

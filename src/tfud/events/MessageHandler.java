@@ -8,14 +8,14 @@ import tfud.communication.DataPackage;
  */
 public class MessageHandler {
 
-    private Vector messageListeners;
+    private final List<MessageListener> messageListeners;
 
     public MessageHandler() {
-        messageListeners = new Vector();
+        messageListeners = new ArrayList<>();
     }
 
     public void addMessageListener(MessageListener m) {
-        messageListeners.addElement(m);
+        messageListeners.add(m);
     }
 
     public void handleMessage(DataPackage p) {
@@ -50,33 +50,33 @@ public class MessageHandler {
     }
 
     public void fireMessageReceived(DataPackage dp) {
-        for (int i = 0; i < messageListeners.size(); i++) {
-            ((MessageListener) messageListeners.elementAt(i)).messageReceived(this, dp);
-        }
+        messageListeners.forEach(ml -> {
+            ml.messageReceived(this, dp);
+        });
     }
 
     public void firePrivateMessageReceived(DataPackage dp) {
-        for (int i = 0; i < messageListeners.size(); i++) {
-            ((MessageListener) messageListeners.elementAt(i)).privateMessageReceived(this, dp);
-        }
+        messageListeners.forEach(ml -> {
+            ml.privateMessageReceived(this, dp);
+        });
     }
 
     public void fireStatusReceived(DataPackage dp) {
-        for (int i = 0; i < messageListeners.size(); i++) {
-            ((MessageListener) messageListeners.elementAt(i)).statusMessageReceived(this, dp);
-        }
+        messageListeners.forEach(ml -> {
+            ml.statusMessageReceived(this, dp);
+        });
     }
 
     /* NOTICE THIS MUST BE GIVEN MORE THOUGHTS */
     public void fireLoginMessageReceived(DataPackage dp) {
-        for (int i = 0; i < messageListeners.size(); i++) {
-            ((MessageListener) messageListeners.elementAt(i)).loginMessageReceived(this, dp);
-        }
+        messageListeners.forEach(ml -> {
+            ml.loginMessageReceived(this, dp);
+        });
     }
 
     public void fireServerMessageReceived(DataPackage dp) {
-        for (int i = 0; i < messageListeners.size(); i++) {
-            ((MessageListener) messageListeners.elementAt(i)).serverMessageReceived(this, dp);
-        }
+        messageListeners.forEach(ml -> {
+            ml.serverMessageReceived(this, dp);
+        });
     }
 }
