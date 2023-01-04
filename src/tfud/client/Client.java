@@ -10,7 +10,7 @@ import java.net.*;
  * Abstract Baseclass for all Clients - override handleConnection() in
  * subclasses
  */
-public abstract class Client  {
+public abstract class Client {
 
     protected Socket server;
     protected OutputStream out;
@@ -39,7 +39,7 @@ public abstract class Client  {
         
     }
     
-    public void start() {
+    public void execute() {
         initiateConnection();
         handleConnection();
         closeConnection();

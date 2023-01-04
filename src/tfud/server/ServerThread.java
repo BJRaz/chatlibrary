@@ -14,8 +14,8 @@ abstract class ServerThread extends Thread {
 
     protected Socket socket;                                                    // plain socket
 
-    protected InputStream input;
-    protected OutputStream output;
+    protected InputStream in;
+    protected OutputStream out;
 
     protected String hostaddress;
 
@@ -27,8 +27,8 @@ abstract class ServerThread extends Thread {
 
         socket.setReceiveBufferSize(43000);
 
-        input = socket.getInputStream();					// sets streams
-        output = socket.getOutputStream();
+        in = socket.getInputStream();					// sets streams
+        out = socket.getOutputStream();
 
     }
 
