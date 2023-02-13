@@ -176,7 +176,7 @@ public class DataPackage implements Serializable {
      */
     @Override
     public String toString() {
-        return "DataPackage[ID: " + id + " TargetID: " + targetid + " Handle: " + handle + " Event: " + event + " Data: " + data.toString() + "]";
+        return "DataPackage[ID: '" + id + "' TargetID: '" + targetid + "' Handle: '" + handle + "' Event: '" + event + "' Data: '" + data.toString() + "']";
     }
 
 }

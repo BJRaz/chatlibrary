@@ -23,11 +23,9 @@ public class ConnectionHandler {
         connectionListeners.add(c);
     }
 
-    public void fireConnectionUpdated(String command) {
+    public void fireConnectionUpdated(ConnectionEvent event) {
         connectionListeners.forEach(cl -> {
-            ConnectionEvent cEvt = new ConnectionEvent(cl, command);
-
-            cl.connectionUpdated(cEvt);
+            cl.connectionUpdated(event);
         });
     }
 }

@@ -56,11 +56,4 @@ abstract class Server {
      */
     public abstract void execute();
 
-    /**
-     * Abstract method execute - need to be defined in subclasses
-     *
-     * @param message Object
-     */
-    public abstract void relayMessage(Object message);
-
 }

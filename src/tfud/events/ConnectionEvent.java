@@ -2,6 +2,7 @@ package tfud.events;
 
 import java.util.EventObject;
 
+
 /**
  * @author BJR
  */
@@ -25,3 +26,4 @@ public class ConnectionEvent extends EventObject {
         return this.command;
     }
 }
+

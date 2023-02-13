@@ -46,11 +46,10 @@ public interface IStorageFacade {
      * Method log
      *
      *
-     * @param pack	the datapackage containing information to be logged.
-     * @param hostaddress	the string with clients TCP/IP or domain address
+     * @param message
      *
      */
-    void log(Object pack, String hostaddress);
+    void log(String message);
 
     void updateOnlineStatus(String username, int status);
     
